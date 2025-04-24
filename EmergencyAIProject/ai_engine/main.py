@@ -8,6 +8,10 @@ import os
 
 app = FastAPI()
 
+@app.get("/")
+async def root():
+    return {"message": "Emergency AI Engine is running"}
+
 # CORSの設定
 app.add_middleware(
     CORSMiddleware,
