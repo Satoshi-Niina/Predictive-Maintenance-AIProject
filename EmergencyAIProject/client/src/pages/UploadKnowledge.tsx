@@ -1,27 +1,43 @@
+
 import React, { useState } from 'react';
 import axios from 'axios';
-import ScriptRunnerForm from '../components/ScriptRunnerForm'; // ← 追加
 
+export default function UploadKnowledge() {
+  const [file, setFile] = useState<File | null>(null);
+  const [message, setMessage] = useState('');
 
-const UploadKnowledge = () => {
-  const [files, setFiles] = useState<FileList | null>(null);
-const [processing, setProcessing] = useState(false);
-const acceptedFileTypes = ".txt,.pdf,.xlsx,.pptx,.docx,.json,image/*";
-
-  const handleUpload = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     if (!file) return;
+
     const formData = new FormData();
     formData.append('file', file);
-    await axios.post('http://localhost:5500/api/upload', formData);
-    alert('アップロード完了');
+
+    try {
+      const response = await axios.post('/api/upload', formData);
+      setMessage(response.data.message);
+    } catch (error) {
+      setMessage('エラーが発生しました');
+    }
   };
 
   return (
-    <div>
-      {/* 既存のアップロードUIの上または下に追加 */}
-      <ScriptRunnerForm />  {/* ← フォームをここに表示 */}
+    <div className="max-w-xl mx-auto">
+      <h1 className="text-2xl font-bold mb-4">ナレッジファイルのアップロード</h1>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <input
+          type="file"
+          onChange={(e) => setFile(e.target.files?.[0] || null)}
+          className="block w-full"
+        />
+        <button
+          type="submit"
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          アップロード
+        </button>
+      </form>
+      {message && <p className="mt-4 text-green-600">{message}</p>}
     </div>
   );
-};
-
-export default UploadKnowledge;
+}
