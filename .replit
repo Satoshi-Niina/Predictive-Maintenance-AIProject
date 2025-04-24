@@ -23,7 +23,7 @@ mode = "parallel"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd EmergencyAIProject/ai_engine && uvicorn main:app --host 0.0.0.0 --port 8000"
+args = "cd EmergencyAIProject/ai_engine && python -m uvicorn main:app --host 0.0.0.0 --port 8000"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
