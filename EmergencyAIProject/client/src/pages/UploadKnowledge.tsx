@@ -4,7 +4,9 @@ import ScriptRunnerForm from '../components/ScriptRunnerForm'; // ← 追加
 
 
 const UploadKnowledge = () => {
-  const [file, setFile] = useState<File | null>(null);
+  const [files, setFiles] = useState<FileList | null>(null);
+const [processing, setProcessing] = useState(false);
+const acceptedFileTypes = ".txt,.pdf,.xlsx,.pptx,.docx,.json,image/*";
 
   const handleUpload = async () => {
     if (!file) return;
