@@ -13,7 +13,7 @@ app.use('/api', require('./routes/upload'));
 app.use('/api', require('./routes/ask'));
 app.use('/api', require('./routes/history'));
 
-const PORT = process.env.PORT || 5500;
+const PORT = process.env.PORT || 5550;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
 });
