@@ -1,5 +1,5 @@
 entrypoint = "index.js"
-modules = ["nodejs-22"]
+modules = ["nodejs-22", "python-3.11"]
 hidden = [".config", "package-lock.json"]
 
 [gitHubImport]
@@ -24,10 +24,6 @@ mode = "parallel"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "cd EmergencyAIProject/client && npm run dev"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "cd EmergencyAIProject/server && npm run dev"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
