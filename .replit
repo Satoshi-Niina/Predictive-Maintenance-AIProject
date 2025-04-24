@@ -23,12 +23,12 @@ mode = "parallel"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd client && npm run dev"
+args = "cd EmergencyAIProject/client && npm run dev"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd server && npm run dev"
+args = "cd EmergencyAIProject/server && npm run dev"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd ai_engine && uvicorn main:app --host 0.0.0.0 --port 8000"
+args = "cd EmergencyAIProject/ai_engine && uvicorn main:app --host 0.0.0.0 --port 8000"
