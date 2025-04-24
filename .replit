@@ -23,15 +23,15 @@ mode = "parallel"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd /home/runner/EmergencyAIProject/ai_engine && python -m uvicorn main:app --host 0.0.0.0 --port 8000"
+args = "cd EmergencyAIProject/server && npm run dev"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd /home/runner/EmergencyAIProject/client && /nix/store/7z337y5rawlc7a86yznxhllihnk3wj78-nodejs-22.10.0-wrapped/bin/npm run dev"
+args = "cd EmergencyAIProject/client && npm run dev"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd /home/runner/EmergencyAIProject/server && /nix/store/7z337y5rawlc7a86yznxhllihnk3wj78-nodejs-22.10.0-wrapped/bin/node index.js"
+args = "cd EmergencyAIProject/ai_engine && python -m uvicorn main:app --host 0.0.0.0 --port 8000"
 
 [[ports]]
 localPort = 8000
