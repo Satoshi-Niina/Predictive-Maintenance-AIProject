@@ -1,0 +1,13 @@
+{
+  "name": "emergency-ai-project",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "client": "npm --prefix client run dev",
+    "server": "npm --prefix server run start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  }
+}
