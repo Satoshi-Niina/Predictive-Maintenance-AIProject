@@ -1,0 +1,18 @@
+{
+  "machines": [
+    {
+      "id": "1",
+      "name": "プレス機 A-1",
+      "type": "プレス機",
+      "status": "正常",
+      "lastMaintenance": "2025-04-25T08:32:49.523Z"
+    },
+    {
+      "id": "2",
+      "name": "旋盤 B-1",
+      "type": "旋盤",
+      "status": "注意",
+      "lastMaintenance": "2025-04-18T08:32:49.523Z"
+    }
+  ]
+}
