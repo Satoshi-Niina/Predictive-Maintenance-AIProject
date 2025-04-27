@@ -1,12 +1,13 @@
-
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List, Dict
 import json
 import os
+from .fault_data_loader import FaultDataLoader
 
 app = FastAPI()
+fault_loader = FaultDataLoader()
 
 @app.get("/")
 async def root():
@@ -44,3 +45,45 @@ async def upload_file(file: UploadFile = File(...)):
 async def get_history():
     # TODO: 実際の履歴取得ロジックを実装
     return {"history": []}
+
+@app.get("/api/fault-data")
+async def get_fault_data():
+    """最新の故障情報を取得"""
+    data = fault_loader.get_latest_fault_data()
+    if data:
+        return {
+            "status": "success",
+            "data": data
+        }
+    return {
+        "status": "error",
+        "message": "故障情報が見つかりません"
+    }
+
+@app.get("/api/fault-history")
+async def get_fault_history():
+    """故障履歴を取得"""
+    data = fault_loader.get_latest_fault_data()
+    if data:
+        return {
+            "status": "success",
+            "history": data.get('conversation_history', [])
+        }
+    return {
+        "status": "error",
+        "message": "故障履歴が見つかりません"
+    }
+
+@app.get("/api/diagnostics")
+async def get_diagnostics():
+    """診断情報を取得"""
+    data = fault_loader.get_latest_fault_data()
+    if data:
+        return {
+            "status": "success",
+            "diagnostics": data.get('diagnostics', {})
+        }
+    return {
+        "status": "error",
+        "message": "診断情報が見つかりません"
+    }
