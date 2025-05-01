@@ -1,0 +1,15 @@
+{
+  "inspection_date": "2025-04-03 17:46:40",
+  "machine_id": "M010",
+  "inspection_type": "緊急点検",
+  "findings": "油圧が低下傾向",
+  "recommendations": "油圧システムの点検が必要",
+  "measurements": {
+    "oil_pressure": "3.7MPa",
+    "oil_temperature": "65.0°C",
+    "flow_rate": "16.2L/min"
+  },
+  "inspector": "点検員4",
+  "location": "工場C-5階",
+  "status": "要対応"
+}

@@ -1,0 +1,15 @@
+{
+  "inspection_date": "2025-04-02 07:05:40",
+  "machine_id": "M010",
+  "inspection_type": "予防保全",
+  "findings": "モーターの温度が上昇傾向",
+  "recommendations": "冷却システムの点検が必要",
+  "measurements": {
+    "temperature": "88.2°C",
+    "current": "114.3A",
+    "power_factor": "0.76"
+  },
+  "inspector": "点検員5",
+  "location": "工場B-1階",
+  "status": "要対応"
+}

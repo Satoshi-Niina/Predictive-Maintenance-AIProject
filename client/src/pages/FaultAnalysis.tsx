@@ -1,62 +1,41 @@
+// React コンポーネント：機械故障分析画面に故障予測と対策予測を統合表示
 import React, { useState } from 'react';
-import { Card } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import FaultSearch from './FaultSearch';
-import FaultPrediction from './FaultPrediction';
-import FaultSolutions from './FaultSolutions';
+import { CountermeasurePrediction } from './CountermeasurePrediction';
+import { AnalyzeInspection } from './AnalyzeInspection';
 
-const FaultAnalysis: React.FC = () => {
-  const [selectedFault, setSelectedFault] = useState<any>(null);
-  const [activeTab, setActiveTab] = useState("search");
+const FaultAnalysis = () => {
+  const [selectedMode, setSelectedMode] = useState('');
 
   return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-900">機械故障分析</h2>
+    <div className="p-4 max-w-4xl mx-auto">
+      <h2 className="text-xl font-bold mb-4">機械故障分析</h2>
+
+      <div className="flex gap-4 mb-4">
+        <button
+          onClick={() => setSelectedMode('故障予測')}
+          className={`px-4 py-2 rounded ${selectedMode === '故障予測' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+        >
+          故障予測
+        </button>
+        <button
+          onClick={() => setSelectedMode('対策予測')}
+          className={`px-4 py-2 rounded ${selectedMode === '対策予測' ? 'bg-green-600 text-white' : 'bg-gray-200'}`}
+        >
+          対策予測
+        </button>
       </div>
 
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 bg-blue-50 p-1 rounded-lg">
-          <TabsTrigger 
-            value="search" 
-            className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:font-bold data-[state=active]:shadow-md data-[state=active]:scale-105 transition-all duration-200 rounded-md"
-          >
-            検索
-          </TabsTrigger>
-          <TabsTrigger 
-            value="prediction" 
-            className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:font-bold data-[state=active]:shadow-md data-[state=active]:scale-105 transition-all duration-200 rounded-md"
-          >
-            故障原因予測
-          </TabsTrigger>
-          <TabsTrigger 
-            value="solutions" 
-            className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:font-bold data-[state=active]:shadow-md data-[state=active]:scale-105 transition-all duration-200 rounded-md"
-          >
-            対策予測
-          </TabsTrigger>
-        </TabsList>
+      {/* コンテンツ切り替え */}
+      {selectedMode === '故障予測' && <AnalyzeInspection />}
+      {selectedMode === '対策予測' && <CountermeasurePrediction />}
 
-        <TabsContent value="search" className="mt-6">
-          <Card className="p-6">
-            <FaultSearch onSelectFault={setSelectedFault} />
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="prediction" className="mt-6">
-          <Card className="p-6">
-            <FaultPrediction selectedFault={selectedFault} />
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="solutions" className="mt-6">
-          <Card className="p-6">
-            <FaultSolutions selectedFault={selectedFault} />
-          </Card>
-        </TabsContent>
-      </Tabs>
+      {!selectedMode && (
+        <div className="p-4 border rounded bg-white text-gray-600">
+          上のボタンから機能を選択してください。
+        </div>
+      )}
     </div>
   );
 };
 
-export default FaultAnalysis; 
+export default FaultAnalysis;

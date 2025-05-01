@@ -1,0 +1,15 @@
+{
+  "inspection_date": "2025-04-24 15:07:40",
+  "machine_id": "M017",
+  "inspection_type": "定期点検",
+  "findings": "異常なし",
+  "recommendations": "通常運転継続",
+  "measurements": {
+    "vibration": "1.3mm/s",
+    "temperature": "45.8°C",
+    "noise_level": "79.0dB"
+  },
+  "inspector": "点検員3",
+  "location": "工場A-3階",
+  "status": "完了"
+}

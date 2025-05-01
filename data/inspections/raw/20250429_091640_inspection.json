@@ -1,0 +1,15 @@
+{
+  "inspection_date": "2025-04-29 09:16:40",
+  "machine_id": "M011",
+  "inspection_type": "故障対応",
+  "findings": "運転中に異常な音が発生",
+  "recommendations": "ギアボックスの点検が必要",
+  "measurements": {
+    "noise_level": "80.1dB",
+    "vibration": "1.3mm/s",
+    "oil_temperature": "64.7°C"
+  },
+  "inspector": "点検員3",
+  "location": "工場A-3階",
+  "status": "要対応"
+}

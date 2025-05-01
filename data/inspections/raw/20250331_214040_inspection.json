@@ -1,0 +1,15 @@
+{
+  "inspection_date": "2025-03-31 21:40:40",
+  "machine_id": "M015",
+  "inspection_type": "定期点検",
+  "findings": "モーターの温度が上昇傾向",
+  "recommendations": "冷却システムの点検が必要",
+  "measurements": {
+    "temperature": "88.2°C",
+    "current": "114.3A",
+    "power_factor": "0.76"
+  },
+  "inspector": "点検員4",
+  "location": "工場B-5階",
+  "status": "要対応"
+}

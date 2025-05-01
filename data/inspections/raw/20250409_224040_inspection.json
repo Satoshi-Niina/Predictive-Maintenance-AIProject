@@ -1,0 +1,15 @@
+{
+  "inspection_date": "2025-04-09 22:40:40",
+  "machine_id": "M008",
+  "inspection_type": "故障対応",
+  "findings": "モーターの異常振動を検知",
+  "recommendations": "ベアリングの状態確認が必要",
+  "measurements": {
+    "vibration": "1.8mm/s",
+    "temperature": "72.6°C",
+    "noise_level": "80.1dB"
+  },
+  "inspector": "点検員2",
+  "location": "工場B-2階",
+  "status": "要対応"
+}
