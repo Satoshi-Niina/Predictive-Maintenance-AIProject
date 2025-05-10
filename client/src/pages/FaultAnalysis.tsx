@@ -12,10 +12,10 @@ const FaultAnalysis = () => {
 
       <div className="flex gap-4 mb-4">
         <button
-          onClick={() => setSelectedMode('故障予測')}
-          className={`px-4 py-2 rounded ${selectedMode === '故障予測' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+          onClick={() => setSelectedMode('原因予測')}
+          className={`px-4 py-2 rounded ${selectedMode === '原因予測' ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
         >
-          故障予測
+          原因予測
         </button>
         <button
           onClick={() => setSelectedMode('対策予測')}
@@ -26,7 +26,7 @@ const FaultAnalysis = () => {
       </div>
 
       {/* コンテンツ切り替え */}
-      {selectedMode === '故障予測' && <AnalyzeInspection />}
+      {selectedMode === '原因予測' && <AnalyzeInspection />}
       {selectedMode === '対策予測' && <CountermeasurePrediction />}
 
       {!selectedMode && (
