@@ -7,8 +7,16 @@ import knowledgeRoutes from './routes/knowledge';
 import machinesRoutes from './routes/machines';
 import failureRouter from './routes/failure';
 
+
 const app = express();
-const PORT = process.env.PORT || 3000;
+// Cloud Run は PORT 環境変数に指定されたポート（通常8080）で待ち受ける必要があります
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Running on port ${PORT}`);
+});
+
+// const app = express();
+// const PORT = process.env.PORT || 3000;
 
 // ミドルウェアの設定
 app.use(cors());
